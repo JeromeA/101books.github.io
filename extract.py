@@ -4,7 +4,7 @@ import base64
 import sys
 import json
 import re
-from typing import Callable
+from typing import Callable, Optional
 from dataclasses import dataclass, field, replace as evolve
 
 @dataclass
@@ -59,7 +59,7 @@ class SGF:
     )
     return f"(;\nAB{ab}\nAW{aw}\n{moves})"
 
-  def to_gnos(self, height_cutoff: int = 11) -> str:
+  def to_gnos(self, level: Optional[str] = None, height_cutoff: int = 11) -> str:
     goban = [
         list("<(((((((((((((((((>"),
         list(r"[+++++++++++++++++]"),
@@ -92,6 +92,8 @@ class SGF:
 
     char91 = lambda c: "\\char91" if c == "[" else c
     result = "{\\gnos%\n"
+    if level:
+      result += f"\\line{{{level}}}\n"
     goban = goban[-height_cutoff:]
     for row in goban:
       row_str = "".join(map(char91, row))
@@ -169,8 +171,9 @@ def main(path: str) -> None:
   stem = path.removesuffix(".json")
   with open(f"{stem}.sgf", "w") as file:
     file.write(theproblem.to_sgf() + "\n")
+  level = input_json.get("levelname")
   with open(f"{stem}.gnos", "w") as file:
-    file.write(theproblem.to_gnos() + "\n")
+    file.write(theproblem.to_gnos(level=level) + "\n")
   with open(f"{stem}.solution", "w") as file:
     file.write(solution_moves + "\n")
 
