@@ -171,6 +171,10 @@ def main(path: str) -> None:
     file.write(theproblem.to_sgf() + "\n")
   with open(f"{stem}.gnos", "w") as file:
     file.write(theproblem.to_gnos() + "\n")
+  level = input_json.get("levelname")
+  with open(f"{stem}.level", "w") as file:
+    if level:
+      file.write(f"\\line{{\\textbf{{{level}}}}}" + "\n")
   with open(f"{stem}.solution", "w") as file:
     file.write(solution_moves + "\n")
 

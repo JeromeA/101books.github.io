@@ -98,6 +98,7 @@
     \begin{varwidth}{\textwidth}%
       \center%
       \small%
+      \IfFileExists{problems/\jobname/##1/##2.level}{\input{problems/\jobname/##1/##2.level}}{}%
       \input{problems/\jobname/##1/##2.gnos}%
       \normalsize\thepcount%
     \end{varwidth}%

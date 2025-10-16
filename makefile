@@ -22,10 +22,10 @@ books = $(shell ls books | grep -v header.tex | xargs -i echo pdfs/{})
 all: $(books:.tex=.pdf)
 logs: levels.log high-problems.log wide-problems.log duplicates.log problem-count.log page-count.log
 
-%.gnos: %.json extract.py
+%.gnos %.sgf %.solution %.level: %.json extract.py
 - ./extract.py "$<"
 
-pdfs/%.pdf: books/%.tex books/header.tex $$(shell find problems/$$(*F)/ -name "*.json" | sed -e "s/.json/.gnos/")
+pdfs/%.pdf: books/%.tex books/header.tex $$(shell find problems/$$(*F)/ -name "*.json" | sed -e "s/.json/.gnos/") $$(shell find problems/$$(*F)/ -name "*.json" | sed -e "s/.json/.level/")
 - mkdir .latex.out
 - pdflatex -output-directory=.latex.out -interaction=nonstopmode "$<"
 - cp .latex.out/"$(@F)" "$@"
