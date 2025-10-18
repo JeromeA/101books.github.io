@@ -26,6 +26,19 @@ download() {
 done
 }
 
+exit 0
+
+download kyu-test /35922/34039/?page=9
+download kyu-test /35922/34040/?page=9
+download kyu-test /35922/34041/?page=9
+download kyu-test /35922/34042/?page=9
+download kyu-test /35922/34043/?page=9
+download kyu-test /35922/34044/?page=9
+download kyu-test /35922/34045/?page=9
+download kyu-test /35922/34046/?page=9
+download kyu-test /35922/34047/?page=9
+download kyu-test /35922/34048/?page=9
+
 download go-seigen-endgame /6/94/
 download go-seigen-endgame /6/95/
 download go-seigen-endgame /6/96/
@@ -45,7 +58,6 @@ download go-seigen-endgame /6/109/
 download go-seigen-endgame /6/110/
 download go-seigen-endgame /6/111/
 download go-seigen-endgame /6/112/
-exit 0
 
 download go-seigen-tsumego /1220/2585/?page=1
 download go-seigen-tsumego /1220/2585/?page=2
