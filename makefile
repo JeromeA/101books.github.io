@@ -6,7 +6,7 @@ GSFLAGS := -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH
 .RECIPEPREFIX=-
 .SECONDEXPANSION:
 .PHONY: FORCE
-.PRECIOUS: %.gnos
+.PRECIOUS: %.gnos %.level
 
 # overview of what makes what:
 # ./download.sh:  101weiqi.com -> problems/*.json
