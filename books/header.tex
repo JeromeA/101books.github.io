@@ -61,7 +61,6 @@
   \Large
   \par Problems: \countproblems
   \par Difficulty: \level
-  \par Source: \href{\source}{\source}
   \par All problems are black to play
   \clearpage
 }
@@ -98,7 +97,7 @@
     \begin{varwidth}{\textwidth}%
       \center%
       \small%
-      \IfFileExists{problems/\jobname/##1/##2.level}{\input{problems/\jobname/##1/##2.level}}{}%
+      %\IfFileExists{problems/\jobname/##1/##2.level}{\input{problems/\jobname/##1/##2.level}}{}%
       \input{problems/\jobname/##1/##2.gnos}%
       \normalsize\thepcount%
     \end{varwidth}%
@@ -138,5 +137,5 @@
 \begin{document}
 \rendertitle%
 \renderproblems%
-\rendersolutions%
+%\rendersolutions%
 \end{document}
